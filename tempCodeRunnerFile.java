@@ -1,2 +1,3 @@
--2)
-                break;
+ (i != arr[i]) {
+            //     newArr[i] = i;
+            // }
