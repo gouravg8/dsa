@@ -12,28 +12,21 @@ public class cyclicshort {
     }
 
     static int[] cyclee(int[] arr) {
-        // int i = 0;
-        // while (i < arr.length) {
-        // int j = arr[i] - 1;
-        // if (arr[i] != arr[j]) {
-        // swap(arr, i, j);
-        // } else {
-        // i++;
-        // }
-        // }
-        for (int i = 0; i < arr.length; i++) {
-            int j = arr[i] - 1;
-            if (arr[i] != arr[j]) {
-                swap(arr, i, j);
-                i--;
+        int i = 0;
+        while (i < arr.length) {
+            int correct = arr[i] - 1;
+            if (arr[i] != arr[correct]) {
+                swap(arr, i, correct);
+            } else {
+                i++;
             }
         }
         return arr;
     }
 
-    private static void swap(int[] arr, int i, int j) {
+    private static void swap(int[] arr, int i, int correct) {
         int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        arr[i] = arr[correct];
+        arr[correct] = temp;
     }
 }

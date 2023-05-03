@@ -1,36 +1,35 @@
-import javax.swing.text.html.HTMLDocument.RunElement;
-
 public class q268 {
     public static void main(String[] args) {
-        int[] nums = { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
-        int ans = missingNumber(nums);
+        int[] arr = { 4, 0, 2, 1 };
+        int ans = missingNum(arr);
         System.out.println(ans);
     }
 
-    static int missingNumber(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > nums.length) {
-                return 0;
-            } else {
-                shortt(nums);
-                if (nums[i] != i) {
-                    return i;
-                }
-            }
+    private static int missingNum(int[] arr) {
+        cyclee(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i)
+                return i;
         }
-        return -1;
+        return arr.length;
     }
 
-    private static void shortt(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            int correct = nums[i];
-            if (nums[i] == i) {
-                continue;
+    static void cyclee(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int j = arr[i];
+            if (j >= 0 && j < arr.length && arr[i] != arr[j]) {
+                swap(arr, i, j);
             } else {
-                int temp = nums[i];
-                nums[i] = correct;
-                correct = temp;
+                i++;
             }
         }
     }
+
+    static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
 }
