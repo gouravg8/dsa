@@ -1,5 +1,3 @@
-import java.net.Socket;
-
 /**
  * sumOfPascalTriangle
  */
